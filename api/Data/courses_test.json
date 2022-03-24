@@ -1,0 +1,81 @@
+[{
+    "course_id": "MICTW",
+    "course_name": "Military Logistics",
+    "department": "Engineering"
+  }, {
+    "course_id": "CLNSE",
+    "course_name": "Guided Imagery",
+    "department": "Support"
+  }, {
+    "course_id": "NADL",
+    "course_name": "JCL",
+    "department": "Product Management"
+  }, {
+    "course_id": "BOKFL",
+    "course_name": "Google Docs",
+    "department": "Human Resources"
+  }, {
+    "course_id": "AGYS",
+    "course_name": "Power Plants",
+    "department": "Legal"
+  }, {
+    "course_id": "FONE",
+    "course_name": "Play Therapy",
+    "department": "Sales"
+  }, {
+    "course_id": "BAM",
+    "course_name": "PTC Creo",
+    "department": "Marketing"
+  }, {
+    "course_id": "AINV",
+    "course_name": "IGRP",
+    "department": "Legal"
+  }, {
+    "course_id": "PDBC",
+    "course_name": "ICD-9-CM",
+    "department": "Training"
+  }, {
+    "course_id": "BIOB",
+    "course_name": "IOT",
+    "department": "Marketing"
+  }, {
+    "course_id": "BFK",
+    "course_name": "KVM",
+    "department": "Research and Development"
+  }, {
+    "course_id": "HPF",
+    "course_name": "Quantitative Analytics",
+    "department": "Accounting"
+  }, {
+    "course_id": "UAE",
+    "course_name": "Avid DS Nitris",
+    "department": "Training"
+  }, {
+    "course_id": "CYS^B",
+    "course_name": "Recruiting",
+    "department": "Services"
+  }, {
+    "course_id": "UMH",
+    "course_name": "Air Force",
+    "department": "Marketing"
+  }, {
+    "course_id": "TSLF",
+    "course_name": "XMLBeans",
+    "department": "Support"
+  }, {
+    "course_id": "ACTA",
+    "course_name": "IVD",
+    "department": "Business Development"
+  }, {
+    "course_id": "BSL",
+    "course_name": "GML",
+    "department": "Services"
+  }, {
+    "course_id": "ELY",
+    "course_name": "Data Warehousing",
+    "department": "Business Development"
+  }, {
+    "course_id": "ROSE",
+    "course_name": "Military Justice",
+    "department": "Training"
+  }]
