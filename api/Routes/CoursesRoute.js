@@ -4,9 +4,9 @@ const { QueryTypes } = require('sequelize');
 
 const {Courses, CourseDetails} = require('../models');
 
-const coursesRoute = express.Router();
+const CoursesRoute = express.Router();
 
-module.exports = coursesRoute;
+module.exports = CoursesRoute;
 
 function asyncHandler(callBack){
     return async (req,res,next) => {
@@ -19,32 +19,32 @@ function asyncHandler(callBack){
 }
 
 //--- COURSES
-coursesRoute.get('/courses', asyncHandler(async (req,res,next)=>{
+CoursesRoute.get('/courses', asyncHandler(async (req,res,next)=>{
     const d = await Courses.findAll();
     return res.status(200).json(d);
 }));
 
-coursesRoute.get('/course/:id', asyncHandler(async (req,res,next)=>{
+CoursesRoute.get('/course/:id', asyncHandler(async (req,res,next)=>{
     const {id} = req.params;
     console.log(id);
     const d = await Courses.findByPk(id);
     return res.status(200).json(d);
 }));
 
-coursesRoute.post('/addCourse', asyncHandler(async (req,res,next)=>{
+CoursesRoute.post('/addCourse', asyncHandler(async (req,res,next)=>{
     const {course_name,department} = req.body;
     const postCourse = await Courses.create({course_name,department});
     return res.status(201).json(postCourse);
 }));
 
-coursesRoute.delete('/delCourse/:id', asyncHandler(async(req,res,next)=>{
+CoursesRoute.delete('/delCourse/:id', asyncHandler(async(req,res,next)=>{
     let {id} = req.params;
     let course = await Courses.findByPk(id);
     await course.destroy();
     return res.status(202).json(`Course ${course.course_name} was deleted succesfully.`);
 }));
 
-coursesRoute.put('/updateCourse/:id', asyncHandler(async(req,res,next)=>{
+CoursesRoute.put('/updateCourse/:id', asyncHandler(async(req,res,next)=>{
     let item = req.body;
     let {id} = req.params;
     let d = await Courses.findByPk(id);
@@ -60,24 +60,23 @@ coursesRoute.put('/updateCourse/:id', asyncHandler(async(req,res,next)=>{
 }));
 //--- COURSE DETAILS
 
-coursesRoute.get('/getCourseDetails/:id', asyncHandler(async(req,res,next)=>{
-    let {id} = req.params;
-    let d = await CourseDetails.findAll({
+CoursesRoute.get('/getCourseDetails/:id', asyncHandler(async(req,res,next)=>{
+    const {id} = req.params;
+    const d = await CourseDetails.findOne({
         where: {
             course_id: id
         }
     });
-    d = d[0];
     return res.status(200).json(d);
 }));
 
-coursesRoute.post('/addCourseDetails', asyncHandler(async(req,res,next)=>{
+CoursesRoute.post('/addCourseDetails', asyncHandler(async(req,res,next)=>{
     const {title,professor,description,estimated_time,materials_needed,course_id} = req.body;
     const postDetails = await CourseDetails.create({title,professor,description,estimated_time,materials_needed,course_id});
     return res.status(201).json(postDetails);
 }));
 
-coursesRoute.put('/updateCourseDetails/:id', asyncHandler(async(req,res,next)=>{
+CoursesRoute.put('/updateCourseDetails/:id', asyncHandler(async(req,res,next)=>{
     let {id} = req.params;
     let item = req.body;
     let details = await CourseDetails.findAll({
@@ -89,9 +88,6 @@ coursesRoute.put('/updateCourseDetails/:id', asyncHandler(async(req,res,next)=>{
     let detailsId = details[0].id
     
     let d = await CourseDetails.findByPk(detailsId);
-
-    console.log(d);
-
     if(item.professor != '') d.professor = item.professor;
     if(item.title != '') d.title = item.title;
     if(item.description != '') d.description = item.description;
@@ -105,7 +101,7 @@ coursesRoute.put('/updateCourseDetails/:id', asyncHandler(async(req,res,next)=>{
 
 //--- Create new course
 
-coursesRoute.post('/newCourse', asyncHandler(async(req,res,next)=>{
+CoursesRoute.post('/newCourse', asyncHandler(async(req,res,next)=>{
 
     const {course_name,department} = req.body;
     const {title,professor,description,estimated_time,materials_needed} = req.body;

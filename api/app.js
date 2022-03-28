@@ -1,6 +1,7 @@
 const express = require("express");
 
 const CoursesRoute = require("./Routes/CoursesRoute.js");
+const UsersRoute = require("./Routes/UsersRoute.js");
 const cors = require("cors");
 const {sequelize} = require('./models');
 
@@ -14,6 +15,7 @@ app.use(cors());
 //routes
 
 app.use("/api/v1", CoursesRoute);
+app.use("/api/v1", UsersRoute);
 
 app.use((errMsg, req, res, next) => {
   const err = new Error(errMsg);
